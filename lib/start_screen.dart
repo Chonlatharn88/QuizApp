@@ -6,42 +6,56 @@ class StartScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Image.asset(
-            'assets/images/quiz-logo.png',
-            width: 300,
-            color: Colors.white.withOpacity(0.7),
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.lightBlue, Colors.yellow],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
           ),
-          const SizedBox(height: 30),
-          const Text(
-            'Learn flutter the fun way!',
-            style: TextStyle(color: Colors.white),
-          ),
-          const SizedBox(height: 30),
-          OutlinedButton.icon(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => const QuestionScreen(),
-                ),
-              );
-            },
-            icon: Icon(
-              Icons.arrow_right_alt,
-              color: Colors.white,
-            ),
-            label: const Text(
-              'Start Quizz',
-              style: TextStyle(
-                color: Colors.white,
+        ),
+        child: Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Image.asset(
+                'assets/images/quiz-logo.png',
+                width: 300,
+                color: Colors.white.withOpacity(0.6),
               ),
-            ),
-          )
-        ],
+              const SizedBox(height: 30),
+              const Text(
+                'Learn flutter the fun way!',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
+              const SizedBox(height: 30),
+              OutlinedButton.icon(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const QuestionScreen(),
+                    ),
+                  );
+                },
+                icon: const Icon(
+                  Icons.arrow_right_alt,
+                  color: Colors.white,
+                ),
+                label: const Text(
+                  'Start Quiz',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
